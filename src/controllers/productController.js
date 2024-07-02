@@ -108,7 +108,46 @@ const addnewProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   try {
-    
+    const { id } = req.params;
+    const productId = parseInt(id);
+    const { name, price, description, category, quantity } = req.body;
+
+    const productExists = await prisma.product.findUnique({
+      where: { id: productId },
+    });
+    if (!productExists) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    const categories = await prisma.category.findMany({
+      where: {
+        id: {
+          in: category,
+        },
+      },
+    });
+
+    if (categories.length !== category.length) {
+      return res.status(400).json({ message: "One or mroe given values of category do not exists" });
+    }
+
+    const updatedProduct = await prisma.product.update({
+      where: { id: productId },
+      data: {
+        name: name,
+        price: price,
+        description: description,
+        quantity: quantity,
+        category: {
+          set: category.map((category) => ({
+            id: category,
+          })),
+        },
+      },
+      include: { category: true },
+    });
+
+    res.status(200).json({ updatedProduct, message: "Product updated successfully" });
 
   } catch (error) {
     console.log(error);
