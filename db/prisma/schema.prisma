@@ -16,6 +16,8 @@ datasource db {
 model Merchant {
   id          Int       @id @default(autoincrement())
   name        String
+  email       String
+  password    String
   description String
   logo        String
   products    Product[]

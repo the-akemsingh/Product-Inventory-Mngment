@@ -1,9 +1,8 @@
 {
-  "name": "pim-api",
+  "name": "db",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,13 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.16.1",
-    "bcrypt": "^5.1.1",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "zod": "^3.23.8"
-  },
-  "devDependencies": {
     "prisma": "^5.16.1"
   }
 }

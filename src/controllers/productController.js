@@ -1,18 +1,43 @@
 const getAllProducts = () => {
-  return "Get all products";
+  try {
+    return "Get all products";
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 const getProductbyId = () => {
-  return "Get product by id";
+  try {
+    return "Get product by id";
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 const addnewProduct = () => {
-  return "Add new product";
+  try {
+    return "Add new product";
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 const updateProduct = () => {
-  return "Update product";
+  try {
+    return "Update product";
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 const deleteProducts = () => {
-  return "Delete product";
+  try {
+    return "Delete product";
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 export default {
   getAllProducts,
   getProductbyId,
