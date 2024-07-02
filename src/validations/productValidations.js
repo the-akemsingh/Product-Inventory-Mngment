@@ -3,9 +3,9 @@ const { z } = require("zod");
 
 const ProductSchema = z.object({
   name: z.string().min(3),
-  price: z.number().positive(),
+  price: z.number().int().positive(),
   description: z.string(),
-  category: z.string().toLowerCase().min(3, "Category must be at least 3 characters long and in lowercase"),
+  category: z.array(z.number().int().positive()),
   quanity: z.number().positive(),
 });
 

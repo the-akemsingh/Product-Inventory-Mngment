@@ -1,8 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { PrismaClient } = require('../../db/node_modules/@prisma/client');
 const prisma = new PrismaClient();
-
-module.exports = { prisma };
 const bcrypt = require("bcrypt");
 const {MerchantRegisterSchema} = require("../validations/merchant");
 const {MerchantLoginSchema} = require("../validations/merchant");
@@ -65,7 +63,7 @@ const loginMerchant = async (req, res) => {
       return res.status(400).json({ message: "Invalid password" });
     }
 
-    const token = jwt.sign({ email: merchant.email }, process.env.TOKEN_SECRET);
+    const token = jwt.sign({ id: merchant.id }, process.env.TOKEN_SECRET);
     // localStorage.setItem("token", token);
     res.status(200).json({token,"message":"Merchant logged in successfully"});
 
