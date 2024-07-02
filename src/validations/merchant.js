@@ -1,9 +1,15 @@
-import {z} from "zod";
+const { z } = require('zod');
 
-const MerchantSchema = z.object({
+const MerchantRegisterSchema = z.object({
     name: z.string().min(3),
     email: z.string().email(),
     password: z.string().min(6),
 });
 
-export default MerchantSchema;
+
+const MerchantLoginSchema= z.object({
+    email: z.string().email(),
+    password: z.string().min(6),
+});
+
+module.exports = { MerchantRegisterSchema, MerchantLoginSchema };

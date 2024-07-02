@@ -38,7 +38,15 @@ const deleteProducts = () => {
   }
 };
 
-export default {
+// export default {
+//   getAllProducts,
+//   getProductbyId,
+//   addnewProduct,
+//   updateProduct,
+//   deleteProducts,
+// };
+
+module.exports = {
   getAllProducts,
   getProductbyId,
   addnewProduct,
